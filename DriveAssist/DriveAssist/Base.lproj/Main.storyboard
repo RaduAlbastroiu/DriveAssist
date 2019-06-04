@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DriveAssist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b5k-Iw-VjQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q1O-Ny-NfN"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bkt-Zy-dVR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="552"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bkt-Zy-dVR" secondAttribute="height" multiplier="3:4" id="IdA-rP-Msg"/>
+                                </constraints>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fQB-Eg-2c9">
+                                <rect key="frame" x="0.0" y="596" width="414" height="301"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bkt-Zy-dVR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B0L-B8-a5Z"/>
+                            <constraint firstItem="Q1O-Ny-NfN" firstAttribute="top" secondItem="fQB-Eg-2c9" secondAttribute="bottom" constant="-35" id="Ti0-1s-pn6"/>
+                            <constraint firstAttribute="trailing" secondItem="Bkt-Zy-dVR" secondAttribute="trailing" id="Vtr-9s-hvd"/>
+                            <constraint firstAttribute="trailing" secondItem="fQB-Eg-2c9" secondAttribute="trailing" id="YjI-gI-Ouf"/>
+                            <constraint firstItem="Bkt-Zy-dVR" firstAttribute="top" secondItem="b5k-Iw-VjQ" secondAttribute="bottom" id="io5-9K-PHA"/>
+                            <constraint firstItem="fQB-Eg-2c9" firstAttribute="top" secondItem="Bkt-Zy-dVR" secondAttribute="bottom" id="q45-EC-hnS"/>
+                            <constraint firstItem="fQB-Eg-2c9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="z4J-Va-AjY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="fQB-Eg-2c9" id="9fP-Hg-OOm"/>
+                        <outlet property="previewLayer" destination="Bkt-Zy-dVR" id="jOG-L3-PM4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

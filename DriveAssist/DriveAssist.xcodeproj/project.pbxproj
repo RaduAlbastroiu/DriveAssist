@@ -12,6 +12,8 @@
 		DA867D2122A6AC6A0080DE68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA867D1F22A6AC6A0080DE68 /* Main.storyboard */; };
 		DA867D2322A6AC6B0080DE68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA867D2222A6AC6B0080DE68 /* Assets.xcassets */; };
 		DA867D2622A6AC6B0080DE68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA867D2422A6AC6B0080DE68 /* LaunchScreen.storyboard */; };
+		DA867D2E22A6CA480080DE68 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA867D2D22A6CA480080DE68 /* VideoCapture.swift */; };
+		DA867D3022A6E0630080DE68 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DA867D2F22A6E0630080DE68 /* Yolov3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DA867D2222A6AC6B0080DE68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA867D2522A6AC6B0080DE68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA867D2722A6AC6B0080DE68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA867D2D22A6CA480080DE68 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		DA867D2F22A6E0630080DE68 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				DA867D2222A6AC6B0080DE68 /* Assets.xcassets */,
 				DA867D2422A6AC6B0080DE68 /* LaunchScreen.storyboard */,
 				DA867D2722A6AC6B0080DE68 /* Info.plist */,
+				DA867D2D22A6CA480080DE68 /* VideoCapture.swift */,
+				DA867D2F22A6E0630080DE68 /* Yolov3.mlmodel */,
 			);
 			path = DriveAssist;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA867D1E22A6AC6A0080DE68 /* ViewController.swift in Sources */,
+				DA867D2E22A6CA480080DE68 /* VideoCapture.swift in Sources */,
+				DA867D3022A6E0630080DE68 /* Yolov3.mlmodel in Sources */,
 				DA867D1C22A6AC6A0080DE68 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
