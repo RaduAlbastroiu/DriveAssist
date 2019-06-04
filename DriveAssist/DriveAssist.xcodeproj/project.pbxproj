@@ -14,6 +14,9 @@
 		DA867D2622A6AC6B0080DE68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA867D2422A6AC6B0080DE68 /* LaunchScreen.storyboard */; };
 		DA867D2E22A6CA480080DE68 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA867D2D22A6CA480080DE68 /* VideoCapture.swift */; };
 		DA867D3022A6E0630080DE68 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DA867D2F22A6E0630080DE68 /* Yolov3.mlmodel */; };
+		DA867D3422A6E22F0080DE68 /* Yolo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA867D3322A6E22F0080DE68 /* Yolo.swift */; };
+		DA867D3622A6E36D0080DE68 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA867D3522A6E36D0080DE68 /* Helpers.swift */; };
+		DA867D3822A6E73C0080DE68 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA867D3722A6E73C0080DE68 /* BoundingBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		DA867D2722A6AC6B0080DE68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA867D2D22A6CA480080DE68 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		DA867D2F22A6E0630080DE68 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
+		DA867D3322A6E22F0080DE68 /* Yolo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yolo.swift; sourceTree = "<group>"; };
+		DA867D3522A6E36D0080DE68 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		DA867D3722A6E73C0080DE68 /* BoundingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +66,14 @@
 			children = (
 				DA867D1B22A6AC6A0080DE68 /* AppDelegate.swift */,
 				DA867D1D22A6AC6A0080DE68 /* ViewController.swift */,
+				DA867D3722A6E73C0080DE68 /* BoundingBox.swift */,
 				DA867D1F22A6AC6A0080DE68 /* Main.storyboard */,
 				DA867D2222A6AC6B0080DE68 /* Assets.xcassets */,
 				DA867D2422A6AC6B0080DE68 /* LaunchScreen.storyboard */,
 				DA867D2722A6AC6B0080DE68 /* Info.plist */,
 				DA867D2D22A6CA480080DE68 /* VideoCapture.swift */,
+				DA867D3322A6E22F0080DE68 /* Yolo.swift */,
+				DA867D3522A6E36D0080DE68 /* Helpers.swift */,
 				DA867D2F22A6E0630080DE68 /* Yolov3.mlmodel */,
 			);
 			path = DriveAssist;
@@ -142,8 +151,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA867D1E22A6AC6A0080DE68 /* ViewController.swift in Sources */,
+				DA867D3622A6E36D0080DE68 /* Helpers.swift in Sources */,
 				DA867D2E22A6CA480080DE68 /* VideoCapture.swift in Sources */,
+				DA867D3822A6E73C0080DE68 /* BoundingBox.swift in Sources */,
 				DA867D3022A6E0630080DE68 /* Yolov3.mlmodel in Sources */,
+				DA867D3422A6E22F0080DE68 /* Yolo.swift in Sources */,
 				DA867D1C22A6AC6A0080DE68 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

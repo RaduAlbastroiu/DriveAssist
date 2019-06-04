@@ -3,7 +3,7 @@
 //  DriveAssist
 //
 //  Created by Radu Albastroiu on 04/06/2019.
-//  Copyright © 2019 Radu Albastroiu. All rights reserved.
+//  Based on https://github.com/Ma-Dan/YOLOv3-CoreML
 //
 
 import UIKit
@@ -11,27 +11,38 @@ import AVFoundation
 import CoreVideo
 
 public class VideoCapture: NSObject {
+    public var previewLayer: AVCaptureVideoPreviewLayer?
     public weak var delegate: VideoCaptureDelegate?
-    public var fps = 30
+    public var fps = 15
     
     let captureSession = AVCaptureSession()
     let videoOutput = AVCaptureVideoDataOutput()
-    let queue = DispatchQueue(label: "sample buffer delegate queue")
+    let queue = DispatchQueue(label: "net.machinethink.camera-queue")
     
     var lastTimestamp = CMTime()
     
-    public func setUp(sessionPreset: AVCaptureSession.Preset = .medium, videoPreview: UIView) {
+    public func setUp(sessionPreset: AVCaptureSession.Preset = .medium,
+                      completion: @escaping (Bool) -> Void) {
+        queue.async {
+            let success = self.setUpCamera(sessionPreset: sessionPreset)
+            DispatchQueue.main.async {
+                completion(success)
+            }
+        }
+    }
+    
+    func setUpCamera(sessionPreset: AVCaptureSession.Preset) -> Bool {
         captureSession.beginConfiguration()
         captureSession.sessionPreset = sessionPreset
         
         guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
             print("Error: no video devices available")
-            return
+            return false
         }
         
         guard let videoInput = try? AVCaptureDeviceInput(device: captureDevice) else {
             print("Error: could not create AVCaptureDeviceInput")
-            return
+            return false
         }
         
         if captureSession.canAddInput(videoInput) {
@@ -41,8 +52,7 @@ public class VideoCapture: NSObject {
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspect
         previewLayer.connection?.videoOrientation = .portrait
-        previewLayer.frame = videoPreview.bounds
-        videoPreview.layer.addSublayer(previewLayer)
+        self.previewLayer = previewLayer
         
         let settings: [String : Any] = [
             kCVPixelBufferPixelFormatTypeKey as String: NSNumber(value: kCVPixelFormatType_32BGRA),
@@ -51,13 +61,28 @@ public class VideoCapture: NSObject {
         videoOutput.videoSettings = settings
         videoOutput.alwaysDiscardsLateVideoFrames = true
         videoOutput.setSampleBufferDelegate(self, queue: queue)
-        videoOutput.connection(with: AVMediaType.video)?.videoOrientation = .portrait
         if captureSession.canAddOutput(videoOutput) {
             captureSession.addOutput(videoOutput)
         }
         
+        // We want the buffers to be in portrait orientation otherwise they are
+        // rotated by 90 degrees. Need to set this _after_ addOutput()!
+        videoOutput.connection(with: AVMediaType.video)?.videoOrientation = .portrait
+        
         captureSession.commitConfiguration()
-        captureSession.startRunning()
+        return true
+    }
+    
+    public func start() {
+        if !captureSession.isRunning {
+            captureSession.startRunning()
+        }
+    }
+    
+    public func stop() {
+        if captureSession.isRunning {
+            captureSession.stopRunning()
+        }
     }
 }
 
@@ -71,14 +96,15 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
         if deltaTime >= CMTimeMake(value: 1, timescale: Int32(fps)) {
             lastTimestamp = timestamp
             let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-            delegate?.videoCapture(self, didCaptureVideoFrame: imageBuffer, timeStamp: timestamp)
+            delegate?.videoCapture(self, didCaptureVideoFrame: imageBuffer, timestamp: timestamp)
         }
     }
     
     public func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        //print("dropped frame")
     }
 }
 
 public protocol VideoCaptureDelegate: class {
-    func videoCapture(_ capture: VideoCapture, didCaptureVideoFrame: CVPixelBuffer?, timeStamp: CMTime)
+    func videoCapture(_ capture: VideoCapture, didCaptureVideoFrame: CVPixelBuffer?, timestamp: CMTime)
 }
