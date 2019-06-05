@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA5A97E122A77C270099A8A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A97E022A77C270099A8A9 /* LocationManager.swift */; };
+		DA5A97E322A77C500099A8A9 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A97E222A77C500099A8A9 /* MapController.swift */; };
 		DA867D1C22A6AC6A0080DE68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA867D1B22A6AC6A0080DE68 /* AppDelegate.swift */; };
 		DA867D1E22A6AC6A0080DE68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA867D1D22A6AC6A0080DE68 /* ViewController.swift */; };
 		DA867D2122A6AC6A0080DE68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA867D1F22A6AC6A0080DE68 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA5A97E022A77C270099A8A9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		DA5A97E222A77C500099A8A9 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		DA867D1822A6AC6A0080DE68 /* DriveAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA867D1B22A6AC6A0080DE68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA867D1D22A6AC6A0080DE68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				DA867D1D22A6AC6A0080DE68 /* ViewController.swift */,
 				DA867D3722A6E73C0080DE68 /* BoundingBox.swift */,
 				DA867D1F22A6AC6A0080DE68 /* Main.storyboard */,
+				DA5A97E022A77C270099A8A9 /* LocationManager.swift */,
+				DA5A97E222A77C500099A8A9 /* MapController.swift */,
 				DA867D2222A6AC6B0080DE68 /* Assets.xcassets */,
 				DA867D2422A6AC6B0080DE68 /* LaunchScreen.storyboard */,
 				DA867D2722A6AC6B0080DE68 /* Info.plist */,
@@ -154,8 +160,10 @@
 				DA867D3622A6E36D0080DE68 /* Helpers.swift in Sources */,
 				DA867D2E22A6CA480080DE68 /* VideoCapture.swift in Sources */,
 				DA867D3822A6E73C0080DE68 /* BoundingBox.swift in Sources */,
+				DA5A97E122A77C270099A8A9 /* LocationManager.swift in Sources */,
 				DA867D3022A6E0630080DE68 /* Yolov3.mlmodel in Sources */,
 				DA867D3422A6E22F0080DE68 /* Yolo.swift in Sources */,
+				DA5A97E322A77C500099A8A9 /* MapController.swift in Sources */,
 				DA867D1C22A6AC6A0080DE68 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

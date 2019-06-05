@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     
     let yolo = YOLO()
     
+    var mapController: MapController!
+    var locationManager: LocationManager!
     var videoCapture: VideoCapture!
     var request: VNCoreMLRequest!
     var startTimes: [CFTimeInterval] = []
@@ -43,6 +45,11 @@ class ViewController: UIViewController {
         setUpCoreImage()
         setUpVision()
         setUpCamera()
+        
+        mapController = MapController(mapView: mapView, viewController: self)
+        mapController.centerMapOnLocation()
+        locationManager = LocationManager()
+        locationManager.delegate = mapController
         
         frameCapturingStartTime = CACurrentMediaTime()
     }
