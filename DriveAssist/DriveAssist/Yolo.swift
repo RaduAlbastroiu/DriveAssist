@@ -142,7 +142,7 @@ class YOLO {
                                                         score: confidenceInClass,
                                                         rect: rect)
                             
-                            if(labels[prediction.classIndex] == "car" || labels[prediction.classIndex] == "person" || labels[prediction.classIndex] == "bus" || labels[prediction.classIndex] == "truck") {
+                            if(colors[labels[prediction.classIndex]] != nil) {
                                 predictions.append(prediction)
                             }
                         }
