@@ -247,9 +247,13 @@ class ViewController: UIViewController {
                 
                 // Show the bounding box.
                 
-                let label = String(format: "%@ %.1f", labels[prediction.classIndex], prediction.score * 100)
-                let color = UIColor.green
-                boundingBoxes[i].show(frame: rect, label: label, color: color)
+                let objectWidth = averageWidth[labels[prediction.classIndex]]!
+                let fieldOfView = Double(width) / Double(rect.size.width) * objectWidth
+                let distance = fieldOfView * 0.674 * 2
+                
+                let label = String(format: "%@ %.1f m", labels[prediction.classIndex], distance) // prediction.score * 100)
+                
+                boundingBoxes[i].show(frame: rect, label: label, color: safeColor)
                 
             } else {
                 boundingBoxes[i].hide()

@@ -23,7 +23,11 @@ let labels = [
     "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier", "toothbrush"
 ]
 
-let colors = ["person": UIColor.green, "car": UIColor.green, "truck": UIColor.green, "bus": UIColor.green, "cat": UIColor.green, "dog": UIColor.green, "horse": UIColor.green, "cow": UIColor.green, "bear": UIColor.green]
+let safeColor = UIColor.green
+let warningColor = UIColor.yellow
+let emergencyColor = UIColor.red
+
+let averageWidth = ["person": 0.45, "car": 1.7, "truck": 2.3, "bus": 2.3, "cat": 0.5, "dog": 0.8, "horse": 2.4, "cow": 2.0, "bear": 2.0]
 
 let anchors: [[Float]] = [[116,90,  156,198,  373,326], [30,61,  62,45,  59,119], [10,13,  16,30,  33,23]]
 
@@ -35,7 +39,7 @@ let anchors: [[Float]] = [[116,90,  156,198,  373,326], [30,61,  62,45,  59,119]
  
  - Parameters:
  - boxes: an array of bounding boxes and their scores
- - limit: the maximum number of boxes that will be selected
+ - limit: the maximum number of boxes that will be selectedthr
  - threshold: used to decide whether boxes overlap too much
  */
 func nonMaxSuppression(boxes: [YOLO.Prediction], limit: Int, threshold: Float) -> [YOLO.Prediction] {
