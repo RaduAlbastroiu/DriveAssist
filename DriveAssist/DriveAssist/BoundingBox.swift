@@ -16,14 +16,14 @@ class BoundingBox {
     init() {
         shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 4
+        shapeLayer.lineWidth = 2
         shapeLayer.isHidden = true
         
         textLayer = CATextLayer()
         textLayer.foregroundColor = UIColor.black.cgColor
         textLayer.isHidden = true
         textLayer.contentsScale = UIScreen.main.scale
-        textLayer.fontSize = 14
+        textLayer.fontSize = 10
         textLayer.font = UIFont(name: "Avenir", size: textLayer.fontSize)
         textLayer.alignmentMode = CATextLayerAlignmentMode.center
     }

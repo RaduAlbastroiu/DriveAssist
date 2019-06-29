@@ -23,7 +23,7 @@ let labels = [
     "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier", "toothbrush"
 ]
 
-let colors = ["person": UIColor.yellow, "car": UIColor.blue, "truck": UIColor.blue, "bus": UIColor.blue, "cat": UIColor.magenta, "dog": UIColor.magenta, "horse": UIColor.magenta, "cow": UIColor.magenta, "bear": UIColor.magenta]
+let colors = ["person": UIColor.green, "car": UIColor.green, "truck": UIColor.green, "bus": UIColor.green, "cat": UIColor.green, "dog": UIColor.green, "horse": UIColor.green, "cow": UIColor.green, "bear": UIColor.green]
 
 let anchors: [[Float]] = [[116,90,  156,198,  373,326], [30,61,  62,45,  59,119], [10,13,  16,30,  33,23]]
 

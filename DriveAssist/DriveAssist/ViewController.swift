@@ -248,7 +248,7 @@ class ViewController: UIViewController {
                 // Show the bounding box.
                 
                 let label = String(format: "%@ %.1f", labels[prediction.classIndex], prediction.score * 100)
-                let color = colors[prediction.classIndex]
+                let color = UIColor.green
                 boundingBoxes[i].show(frame: rect, label: label, color: color)
                 
             } else {
