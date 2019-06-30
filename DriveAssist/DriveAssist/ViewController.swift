@@ -251,9 +251,24 @@ class ViewController: UIViewController {
                 let fieldOfView = Double(width) / Double(rect.size.width) * objectWidth
                 let distance = fieldOfView * 0.674 * 2
                 
+                let speed = mapController.currentSpeed
+            
+                var color = safeColor
+                
+                if(distance / speed < 5.0 && distance / speed > 2.0)
+                {
+                    color = warningColor
+                }
+                
+                if(distance / speed < 2.0)
+                {
+                    color = emergencyColor
+                    AudioServicesPlaySystemSound(1112);
+                }
+                
                 let label = String(format: "%@ %.1f m", labels[prediction.classIndex], distance) // prediction.score * 100)
                 
-                boundingBoxes[i].show(frame: rect, label: label, color: safeColor)
+                boundingBoxes[i].show(frame: rect, label: label, color: color)
                 
             } else {
                 boundingBoxes[i].hide()
@@ -268,6 +283,10 @@ extension ViewController: VideoCaptureDelegate {
         //predict(image: UIImage(named: "dog416")!); return
         
         semaphore.wait()
+        
+        DispatchQueue.main.async {
+            self.SpeedLabel.text = String(Int(self.mapController.currentSpeed * 3.6)) + " Km / h"
+        }
         
         if let pixelBuffer = pixelBuffer {
             // For better throughput, perform the prediction on a background queue

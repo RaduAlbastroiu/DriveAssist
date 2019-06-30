@@ -36,6 +36,11 @@ class BoundingBox {
     func show(frame: CGRect, label: String, color: UIColor) {
         CATransaction.setDisableActions(true)
         
+        if color == emergencyColor {
+            shapeLayer.lineWidth = 8
+            textLayer.fontSize = 20
+        }
+        
         let path = UIBezierPath(rect: frame)
         shapeLayer.path = path.cgPath
         shapeLayer.strokeColor = color.cgColor

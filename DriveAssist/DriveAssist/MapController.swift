@@ -53,8 +53,8 @@ class MapController: NSObject, MKMapViewDelegate {
     private func computeSpeed() {
         if(previousLocations.count > 10) {
             var newPreviousLocations = [CLLocation]()
-            for index in previousLocations.count - 4 ... previousLocations.count {
-                newPreviousLocations.append(previousLocations[index])
+            for index in previousLocations.count - 3 ... previousLocations.count {
+                newPreviousLocations.append(previousLocations[index-1])
             }
             
             previousLocations = newPreviousLocations
@@ -63,11 +63,13 @@ class MapController: NSObject, MKMapViewDelegate {
         if( previousLocations.count > 3) {
             var totalSpeed = 0.0
             
-            for index in previousLocations.count...previousLocations.count - 2 {
-                totalSpeed += previousLocations[index].speed
+            for index in previousLocations.count-2...previousLocations.count {
+                totalSpeed += previousLocations[index - 1].speed
             }
             
             currentSpeed = totalSpeed / 3.0
+            
+            currentSpeed = max(0, currentSpeed)
         }
     }
 }
@@ -76,9 +78,13 @@ extension MapController: LocationManagerDelegate {
     func locationUpdated(didUpdateLocations locations: [CLLocation]) {
         if(shouldCenterMapOnLocation) {
             if(locations.count > 0) {
-                centerMapOn(location: locations[0], withRadius: 1000)
-                shouldCenterMapOnLocation = false
+                
+                let radius = 100 + currentSpeed * 50
+            
+                centerMapOn(location: locations[0], withRadius: radius)
+                // shouldCenterMapOnLocation = false
                 previousLocations.append(locations[0])
+                computeSpeed()
             }
         }
         currentLocation = locations[0]
