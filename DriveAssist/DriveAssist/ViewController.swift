@@ -247,7 +247,8 @@ class ViewController: UIViewController {
                 
                 // Show the bounding box.
                 
-                let objectWidth = averageWidth[labels[prediction.classIndex]]!
+                let objectType = labels[prediction.classIndex]
+                let objectWidth = averageWidth[objectType]!
                 let fieldOfView = Double(width) / Double(rect.size.width) * objectWidth
                 let distance = fieldOfView * 0.674 * 2
                 
