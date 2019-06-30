@@ -29,7 +29,7 @@ let emergencyColor = UIColor.red
 
 let colors = ["person": UIColor.green, "car": UIColor.green, "truck": UIColor.green, "bus": UIColor.green, "cat": UIColor.green, "dog": UIColor.green, "horse": UIColor.green, "cow": UIColor.green, "bear": UIColor.green]
 
-let averageWidth = ["person": 0.45, "car": 1.7, "truck": 2.3, "bus": 2.3, "cat": 0.5, "dog": 0.8, "horse": 2.4, "cow": 2.0, "bear": 2.0]
+let averageWidth = ["person": 0.5, "car": 2.0, "truck": 3.0, "bus": 3.0, "morotbike": 1.2, "cat": 0.5, "dog": 0.8, "horse": 2.4, "cow": 2.0, "bear": 2.0]
 
 let anchors: [[Float]] = [[116,90,  156,198,  373,326], [30,61,  62,45,  59,119], [10,13,  16,30,  33,23]]
 
