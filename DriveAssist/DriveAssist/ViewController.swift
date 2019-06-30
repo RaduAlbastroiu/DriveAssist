@@ -255,18 +255,22 @@ class ViewController: UIViewController {
                 let speed = mapController.currentSpeed
             
                 var color = safeColor
-                var emergencyTime = 0.5 + 0.075 * mapController.currentSpeed
-                var warningTime = 2 * emergencyTime
+                let emergencyTime = 0.5 + 0.075 * mapController.currentSpeed
+                let warningTime = 2 * emergencyTime
                 
-                if(distance / speed < warningTime && distance / speed > emergencyTime)
-                {
-                    color = warningColor
-                }
                 
-                if(distance / speed < emergencyTime)
+                if(rect.origin.x > 50 && rect.origin.x + rect.size.width < width &&
+                    rect.origin.y > 50 && rect.origin.y + rect.size.height < height)
                 {
-                    color = emergencyColor
-                    AudioServicesPlaySystemSound(1112);
+                    if(distance / speed < warningTime && distance / speed > emergencyTime)
+                    {
+                        color = warningColor
+                    }
+                    if(distance / speed < emergencyTime)
+                    {
+                        color = emergencyColor
+                        AudioServicesPlaySystemSound(1112);
+                    }
                 }
                 
                 let label = String(format: "%@ %.1f m", labels[prediction.classIndex], distance) // prediction.score * 100)
