@@ -79,7 +79,7 @@ extension MapController: LocationManagerDelegate {
         if(shouldCenterMapOnLocation) {
             if(locations.count > 0) {
                 
-                let radius = 100 + currentSpeed * 50
+                let radius = 50 + currentSpeed * 25
             
                 centerMapOn(location: locations[0], withRadius: radius)
                 // shouldCenterMapOnLocation = false

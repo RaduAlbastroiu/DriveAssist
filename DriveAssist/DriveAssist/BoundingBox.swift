@@ -38,7 +38,8 @@ class BoundingBox {
         
         if color == emergencyColor {
             shapeLayer.lineWidth = 8
-            textLayer.fontSize = 20
+        } else {
+            shapeLayer.lineWidth = 2
         }
         
         let path = UIBezierPath(rect: frame)
