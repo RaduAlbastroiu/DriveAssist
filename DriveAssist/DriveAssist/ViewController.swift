@@ -254,13 +254,15 @@ class ViewController: UIViewController {
                 let speed = mapController.currentSpeed
             
                 var color = safeColor
+                var emergencyTime = 0.5 + 0.075 * mapController.currentSpeed
+                var warningTime = 2 * emergencyTime
                 
-                if(distance / speed < 5.0 && distance / speed > 2.0)
+                if(distance / speed < warningTime && distance / speed > emergencyTime)
                 {
                     color = warningColor
                 }
                 
-                if(distance / speed < 2.0)
+                if(distance / speed < emergencyTime)
                 {
                     color = emergencyColor
                     AudioServicesPlaySystemSound(1112);
