@@ -273,7 +273,7 @@ class ViewController: UIViewController {
                     }
                 }
                 
-                let label = String(format: "%@ %.1f m", labels[prediction.classIndex], distance) // prediction.score * 100)
+                let label = String(format: "%@ %.1f m", labels[prediction.classIndex], distance)
                 
                 boundingBoxes[i].show(frame: rect, label: label, color: color)
                 
@@ -286,11 +286,10 @@ class ViewController: UIViewController {
 
 extension ViewController: VideoCaptureDelegate {
     func videoCapture(_ capture: VideoCapture, didCaptureVideoFrame pixelBuffer: CVPixelBuffer?, timestamp: CMTime) {
-        // For debugging.
-        //predict(image: UIImage(named: "dog416")!); return
-        
+
         semaphore.wait()
         
+        // At each frame we want to print current speed
         DispatchQueue.main.async {
             self.SpeedLabel.text = String(Int(self.mapController.currentSpeed * 3.6)) + " Km / h"
         }
@@ -301,7 +300,6 @@ extension ViewController: VideoCaptureDelegate {
             // the capture queue and drop frames when Core ML can't keep up.
             DispatchQueue.global().async {
                 self.predict(pixelBuffer: pixelBuffer)
-                //self.predictUsingVision(pixelBuffer: pixelBuffer)
             }
         }
     }
