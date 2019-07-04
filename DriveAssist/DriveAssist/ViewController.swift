@@ -255,12 +255,14 @@ class ViewController: UIViewController {
                 let speed = mapController.currentSpeed
             
                 var color = safeColor
-                let emergencyTime = 0.5 + 0.075 * mapController.currentSpeed
+                let emergencyTime = 0.5 + 0.05 * mapController.currentSpeed
                 let warningTime = 2 * emergencyTime
                 
+                let centerX = rect.origin.x + rect.size.width
+                let centerY = rect.origin.y + rect.size.height
                 
-                if(rect.origin.x > 50 && rect.origin.x + rect.size.width < width &&
-                    rect.origin.y > 50 && rect.origin.y + rect.size.height < height)
+                if(centerX > 100 && centerX < width - 100 &&
+                    centerY > 50 && centerY < height - 50)
                 {
                     if(distance / speed < warningTime && distance / speed > emergencyTime)
                     {
